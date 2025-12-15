@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- Caricamento Font Awesome per le icone social. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/CDQeJEX/L7XkNEwtxzW0D6zO9eW7/8L/f4eU2L2K+rA8/pA/1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Digitale - Alessio Bosticco</title>
@@ -10,9 +12,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-black': '#1a1a1a', // Nero Intenso
-                        'accent-green': '#4f775c', // Verde scuro per accenti
-                        'paper-white': '#fdfcfb', // Sfondo simile a carta
+                        // NUOVA PALETTE BLU E RAME
+                        'primary-navy': '#0B132B', // Blu Notte
+                        'accent-gold': '#A97F3E', // Rame Opaco (usato per CTA e titoli principali)
+                        'accent-cerulean': '#1C77C3', // Blu Ceruleo (usato per hover e accenti dinamici)
+                        'paper-white': '#F8F9FA', // Sfondo Card
                     },
                     fontFamily: {
                         // Font moderni e puliti
@@ -32,30 +36,32 @@
         }
         /* Stile base per le "pagine" del contenuto a destra */
         .content-card {
-            background-color: white;
+            /* Usiamo background-color: white e opacity per non influenzare il Paper White globale */
+            background-color: white; 
             padding: 1.5rem;
             border: 1px solid #eee;
             transition: box-shadow 0.3s;
             cursor: pointer;
+            border-radius: 0.5rem; 
         }
         .content-card:hover {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
+<!-- Imposto lo sfondo generale su un grigio chiaro e utilizzo il paper-white per le card -->
 <body class="bg-gray-100 min-h-screen font-sans p-4">
 
     <!-- CONTENITORE PRINCIPALE (Simula l'apertura del portfolio) -->
-    <!-- Su schermi grandi, usa Flex per affiancare i due blocchi. Su mobile, rimangono impilati. -->
     <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 lg:gap-8 rounded-xl shadow-2xl overflow-hidden">
 
-        <!-- 1. PANNELLO SINISTRO: COPERTINA (Visivamente Dominante) -->
-        <div class="lg:w-1/3 min-h-[500px] lg:min-h-full bg-primary-black relative flex flex-col justify-between p-6 rounded-xl lg:rounded-none lg:rounded-l-xl">
+        <!-- 1. PANNELLO SINISTRO: COPERTINA (Colore Primary Navy) -->
+        <div class="lg:w-1/3 min-h-[500px] lg:min-h-full bg-primary-navy relative flex flex-col justify-between p-6 rounded-xl lg:rounded-none lg:rounded-l-xl">
             
             <!-- Immagine di Copertina -->
-            <!-- Utilizza una grande immagine dal percorso relativo -->
-            <img src="./assets/cover_main.jpg" 
-                 onerror="this.onerror=null;this.src='https://placehold.co/800x1200/4f775c/ffffff?text=COVER+IMAGE';"
+            <!-- Ho inserito il placeholder colorato in caso di fallimento del caricamento -->
+            <img src="./assets/Gemini_Generated_Image_70o4kn70o4kn70o4.png" 
+                 onerror="this.onerror=null;this.src='https://placehold.co/800x1200/0B132B/A97F3E?text=ALESSIO+BOSTICCO';"
                  alt="Immagine di copertina creativa" 
                  class="absolute inset-0 w-full h-full object-cover opacity-70">
             
@@ -63,64 +69,65 @@
                 <div class="flex items-end justify-between w-full">
                     <!-- Titolo Verticale Stilizzato -->
                     <h2 class="vertical-text text-6xl font-extrabold text-paper-white tracking-widest ml-[-1rem]">
-                        CREATIVE PORTFOLIO
+                        PERSONAL PORTFOLIO
                     </h2>
                     
                     <!-- Dettagli Design/Anno -->
                     <div class="text-paper-white text-sm">
-                        <p class="font-light">Design by: Alessio Bosticco</p>
-                        <p class="font-semibold text-xl mt-1">2024</p>
+                        <p class="font-bold text-2xl">Alessio Bosticco</p>
+                        <p class="font-semibold text-xl mt-1">2025</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 2. PANNELLO DESTRO: GRIGLIA CONTENUTI -->
-        <!-- Utilizza una griglia 2x2 che si rompe su mobile -->
         <div class="lg:w-2/3 p-4 bg-paper-white grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-8">
 
-            <!-- RIGA 1: Sommario e Dettagli (Modello: Testo + Immagine Piccola Affiancata) -->
+            <!-- RIGA 1: Sommario e Dettagli -->
             
             <!-- CARD 1: INDEX / SOMMARIO -->
             <a href="[LINK_AL_TUO_LINKEDIN]" class="content-card">
-                <h3 class="text-xs font-bold tracking-widest text-gray-500 mb-2 border-b pb-1">INDEX</h3>
+                <h3 class="text-s font-extrabold tracking-widest text-gray-500 mb-2 border-b pb-1">INDEX</h3>
                 <div class="flex space-x-4">
                     <div class="w-2/3">
-                        <p class="text-[10px] uppercase font-semibold text-primary-black mb-1">TEAM & EXPERIENCE</p>
-                        <p class="text-[10px] uppercase font-semibold text-primary-black mb-1">ODESSA PROJECTS</p>
-                        <p class="text-[10px] uppercase font-semibold text-primary-black mb-1">GRAPHIC DESIGN</p>
-                        <p class="text-[10px] uppercase font-semibold text-primary-black">CONTACT & LINKS</p>
-                        <p class="text-sm mt-3 text-gray-700">Sommario dei contenuti principali del portfolio, con focus sulle tue esperienze chiave e progetti multidisciplinari.</p>
+                        <p class="text-sm mt-3 text-gray-700">This portfolio unifies nine years of operational management, the analytical rigor of an Engineering background, and high-impact creative direction. It provides a 360-degree view, demonstrating proven ability in mobilizing resources and coordinating logistics for large-scale events. My focus is on leveraging multidisciplinary skills to drive enduring projects, from community engagement to data-driven decision-making.</p>
                     </div>
                     <div class="w-1/3 flex-shrink-0">
                         <!-- Immagine 1 (assets/index_img.jpg) -->
-                        <img src="./assets/index_img.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/100x150/f0f0f0/333?text=IMG1';"
-                             alt="Immagine di sommario" class="w-full h-auto object-cover rounded shadow-md">
+                        <img src="./assets/Meetico 2025-1249.jpg" 
+                              onerror="this.onerror=null;this.src='https://placehold.co/100x150/f0f0f0/333?text=IMG1';"
+                              alt="Immagine di sommario" class="w-full h-auto object-cover rounded shadow-md">
                     </div>
                 </div>
             </a>
             
             <!-- CARD 2: TEAM & CAPACITÀ -->
             <a href="[LINK_AL_REPORT_DI_ODESSA]" class="content-card">
-                <h3 class="text-xs font-bold tracking-widest text-gray-500 mb-2 border-b pb-1">TEAM & CAPACITÀ</h3>
+                <h3 class="text-s font-extrabold tracking-widest text-gray-500 mb-2 border-b pb-1">SKILLS & EXPERIENCE</h3>
                 <div class="flex space-x-4">
                     <div class="w-2/3">
-                        <p class="text-xs font-semibold text-primary-black">Gestione Progetti</p>
+                        <p class="text-xs font-semibold text-primary-navy">Transferable Skills</p>
                         <ul class="list-disc list-inside text-gray-700 text-sm mt-1 space-y-0.5">
-                            <li><span class="text-[11px]">Pianificazione logistica.</span></li>
-                            <li><span class="text-[11px]">Coordinamento di 5+ persone.</span></li>
-                            <li><span class="text-[11px]">Problem Solving (Ing.).</span></li>
+                            <li><span class="text-[11px]">Project management.</span></li>
+                            <li><span class="text-[11px]">Data Analysis.</span></li>
+                            <li><span class="text-[11px]">Team organization.</span></li>
+                            <li><span class="text-[11px]">Communication.</span></li>
+                            <li><span class="text-[11px]">Team Work and Collaboration.</span></li>
+                            <li><span class="text-[11px]">Flexibility and Adaptability.</span></li>
+                            <li><span class="text-[11px]">Customer Focus.</span></li>
+                            <li><span class="text-[11px]">Institutional Relations.</span></li>
                         </ul>
                     </div>
                     <div class="w-1/3 flex-shrink-0 grid grid-cols-1 gap-1">
                         <!-- Immagine 2 (assets/team_pic.jpg) -->
-                        <img src="./assets/team_pic.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/100x70/e0e0e0/333?text=IMG2';"
-                             alt="Immagine del team" class="w-full h-auto object-cover rounded shadow-sm">
+                        <img src="./assets/Meetico 2025-1138.jpg" 
+                              onerror="this.onerror=null;this.src='https://placehold.co/100x70/e0e0e0/333?text=IMG2';"
+                              alt="Immagine del team" class="w-full h-auto object-cover rounded shadow-sm">
                     </div>
                 </div>
-                <p class="text-sm mt-3 text-gray-700">Dettaglio sul background e le competenze acquisite nel team Odessa e nella formazione in Ingegneria.</p>
+                <!-- Descrizione Background -->
+                <p class="text-sm mt-3 text-gray-700">Nine years of project and logistical management. My Engineering background ensures seamless collaboration with technical experts for robust, large-scale event execution.</p>
             </a>
 
             <!-- RIGA 2: Progetti Principali (Modello: Immagine Grande in Alto + Testo Breve) -->
@@ -128,60 +135,127 @@
             <!-- CARD 3: PROGETTO GRANDE (Es. Evento Odessa) -->
             <a href="[LINK_AL_VIDEO_O_FOTO_ODESSA]" class="content-card md:col-span-1 p-0 flex flex-col">
                 <!-- Immagine 3 (assets/project_large.jpg) -->
-                <img src="./assets/project_large.jpg" 
-                     onerror="this.onerror=null;this.src='https://placehold.co/600x300/e6e6e6/333?text=PROGETTO+ODESSA';"
-                     alt="Immagine di un evento principale" class="w-full h-40 object-cover">
+                <img src="./assets/DSC06432.jpg" 
+                      onerror="this.onerror=null;this.src='https://placehold.co/600x300/0B132B/F8F9FA?text=PROGETTO+ODESSA';"
+                      alt="Immagine di un evento principale" class="w-full h-40 object-cover rounded-t-lg">
                 <div class="p-4 flex-grow">
-                    <h3 class="text-sm font-bold tracking-widest text-accent-green mb-1">PROGETTO CHIAVE</h3>
-                    <p class="text-sm font-bold text-primary-black mb-2">Evento [Nome Evento] (1000+ Partecipanti)</p>
-                    <p class="text-xs text-gray-700">Analisi e gestione logistica di un evento su larga scala. Focus sulla sicurezza e sull'ottimizzazione delle risorse in tempo reale.</p>
+                    <!-- TITOLO MODIFICATO: da accent-gold a primary-navy -->
+                    <h3 class="text-sm font-bold tracking-widest text-primary-navy mb-1">APS ODESSA</h3>
+                    <p class="text-xs font-semibold text-primary-navy mb-2">Executes large-scale cultural events, driving robust community engagement and knowledge sharing.</p>
+                    <p class="text-xs text-gray-700">We secure critical operating capital through competitive grants and strategic private sponsorships, while coordinating complex logistics, rigorous safety planning, and crucial institutional partnerships.</p>
                 </div>
             </a>
             
-            <!-- CARD 4: GRAFICA & CREATIVITÀ -->
-            <a href="[LINK_AL_PORTFOLIO_CANVA_ILLUSTRATOR]" class="content-card md:col-span-1 p-0 flex flex-col">
+            <!-- CARD 4: EVENTO SPORTIVO (MEETICO & 12H46) -->
+            <a href="[LINK_AL_EVENTO_SPORTIVO]" class="content-card md:col-span-1 p-0 flex flex-col">
                 <!-- Immagine 4 (assets/graphic_design.jpg) -->
-                <img src="./assets/graphic_design.jpg" 
-                     onerror="this.onerror=null;this.src='https://placehold.co/600x300/f0f0f0/333?text=GRAFICA+DESIGN';"
-                     alt="Anteprima grafica" class="w-full h-40 object-cover">
+                <img src="./assets/Meetico 2025-1071.jpg" 
+                      onerror="this.onerror=null;this.src='https://placehold.co/600x300/f0f0f0/333?text=EVENTO+SPORTIVO';"
+                      alt="Anteprima grafica" class="w-full h-40 object-cover rounded-t-lg">
                 <div class="p-4 flex-grow">
-                    <h3 class="text-sm font-bold tracking-widest text-pink-600 mb-1">DESIGN E BRANDING</h3>
-                    <p class="text-sm font-bold text-primary-black mb-2">Supporto Creativo (Canva & Illustrator)</p>
-                    <p class="text-xs text-gray-700">Creazione di contenuti visivi, gestione della comunicazione social e coordinamento del brand identity per i diversi progetti associativi.</p>
+                    <!-- TITOLO MODIFICATO: da accent-gold a primary-navy -->
+                    <h3 class="text-sm font-bold tracking-widest text-primary-navy mb-1">MEETICO & 12H46</h3>
+                    <p class="text-xs font-bold text-primary-navy mb-2">Brand Growth & High-Volume Operations</p>
+                    <p class="text-xs text-gray-700">Established over four years, this sporting event consistently drives attendance exceeding 1,000 participants per edition, showcasing robust operational scalability and high-impact community engagement. This success serves as a key platform for brand consolidation and fortifying institutional and commercial partnerships.</p>
                 </div>
             </a>
 
-            <!-- RIGA 3: Contatti e Altri Link (Modello: Testo + Immagini in Griglia) -->
-
-            <!-- CARD 5: CONTACTS & REFERENZE -->
-            <a href="mailto:alessiobosticco12@gmail.com" class="content-card md:col-span-2">
-                <h3 class="text-xs font-bold tracking-widest text-gray-500 mb-2 border-b pb-1">CONTATTI & REFERENZE</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- Colonna Testo -->
-                    <div class="md:col-span-2">
-                        <p class="text-sm font-bold text-primary-black">Alessio Bosticco</p>
-                        <p class="text-xs text-gray-700 mb-2">Laureando Magistrale, Politecnico di Torino.</p>
-                        
-                        <div class="space-y-1">
-                            <p class="text-sm font-semibold">Email: alessiobosticco12@gmail.com</p>
-                            <p class="text-sm font-semibold">Cell: +39 3665032536</p>
-                            <a href="[INSERISCI_LINK_LINKEDIN]" target="_blank" class="text-sm text-blue-600 hover:underline">Profilo LinkedIn &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Colonna Immagini Piccole -->
-                    <div class="md:col-span-1 grid grid-cols-2 gap-1">
-                        <!-- Immagine 5 (assets/contact_1.jpg) -->
-                        <img src="./assets/contact_1.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/70x70/cccccc/333?text=C1';"
-                             alt="Piccola immagine referenza 1" class="w-full h-auto object-cover shadow-sm">
-                        <!-- Immagine 6 (assets/contact_2.jpg) -->
-                        <img src="./assets/contact_2.jpg" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/70x70/cccccc/333?text=C2';"
-                             alt="Piccola immagine referenza 2" class="w-full h-auto object-cover shadow-sm">
-                    </div>
+            <!-- CARD 5: WWDIWWL (Progetto Creativo) -->
+            <a href="https://www.instagram.com/whatwedoiswhatwelove/" class="content-card md:col-span-1 p-0 flex flex-col">
+                <!-- Immagine 5 (assets/IMG_6810.PNG) -->
+                <!-- Corretto il percorso dell'immagine: rimosso l'apice extra -->
+                <img src="./assets/IMG_6810.PNG"
+                      onerror="this.onerror=null;this.src='https://placehold.co/600x300/0B132B/F8F9FA?text=PROGETTO+CREATIVO';"
+                      alt="Immagine progetto creativo" class="w-full h-40 object-cover rounded-t-lg">
+                <div class="p-4 flex-grow">
+                    <!-- TITOLO MODIFICATO: da accent-gold a primary-navy -->
+                    <h3 class="text-sm font-bold tracking-widest text-primary-navy mb-1">WHAT WE DO IS WHAT WE LOVE</h3>
+                    <p class="text-xs font-light text-primary-navy mb-2">"What we do is what we love" is a multidisciplinary artistic project merging electronic music (DJ sets) and design within unique settings.</p>
+                    <p class="text-xs text-gray-700">We transform cultural landmarks and open-air natural beauties into immersive stages, aiming to elevate both the creative arts and the surrounding environment through high-quality content.</p>
+                </div>
+            </a>
+            
+            <!-- CARD 6: TESI & DATA SCIENCE -->
+            <a href="[LINK_ALLA_TUA_TESI]" class="content-card md:col-span-1 p-0 flex flex-col">
+                <!-- Immagine 6 (assets/lab_work.jpg) -->
+                <img src="./assets/22-july_deepmind-proteome.webp" 
+                      onerror="this.onerror=null;this.src='https://placehold.co/600x300/f0f0f0/333?text=RICERCA+SCIENTIFICA';"
+                      alt="Immagine di ricerca scientifica" class="w-full h-40 object-cover rounded-t-lg">
+                <div class="p-4 flex-grow">
+                    <!-- TITOLO MODIFICATO: da accent-gold a primary-navy -->
+                    <h3 class="text-sm font-bold tracking-widest text-primary-navy mb-1">STUDY - THESIS</h3>
+                    <p class="text-xs font-bold text-primary-navy mb-2">Molecular Modelling to investigate milk-derived peptide activity and folding.</p>
+                    <p class="text-xs text-gray-700">Molecular Modelling and Machine Learning predict peptide bioactivity. Methodology involved data collection, analysis, and feature engineering of molecular data for therapeutic screening.</p>
                 </div>
             </a>
 
+            <!-- RIGA 3: Contatti, Link Social e CV (riorganizzati) -->
+            <div class="content-card md:col-span-2">
+                <h3 class="text-xs font-bold tracking-widest text-gray-500 mb-4 border-b pb-1">CONTACTS & LINKS</h3>
+                
+                <!-- Sezione Icone Social (Disposte verticalmente con flex-col) - ORA AL PRIMO POSTO -->
+                <div class="flex flex-col space-y-3 mb-6">
+                    <!-- Titolo per i Link -->
+                    <p class="text-xs font-bold tracking-widest text-gray-500 mb-1">PROFILES</p>
+
+                    <!-- Link Instagram @_meetico_ - Hover Rosa per coerenza di brand -->
+                    <a href="https://www.instagram.com/_meetico_/" target="_blank" class="flex items-center text-primary-navy hover:text-pink-600 transition duration-150">
+                        <i class="fab fa-instagram w-5 mr-3 text-lg"></i>
+                        <span class="text-sm">@_meetico_</span>
+                    </a>
+
+                    <!-- Link Instagram Associazione Odessa - Hover Rosa per coerenza di brand -->
+                    <a href="https://www.instagram.com/associazione_odessa/" target="_blank" class="flex items-center text-primary-navy hover:text-pink-600 transition duration-150">
+                        <i class="fab fa-instagram w-5 mr-3 text-lg"></i>
+                        <span class="text-sm">@associazioneodessa</span>
+                    </a>
+
+                     <!-- Link Instagram WWDIWWL - Hover Rosa per coerenza di brand -->
+                    <a href="https://www.instagram.com/whatwedoiswhatwelove/" target="_blank" class="flex items-center text-primary-navy hover:text-pink-600 transition duration-150">
+                        <i class="fab fa-instagram w-5 mr-3 text-lg"></i>
+                        <span class="text-sm">@whatwedoiswhatwelove</span>
+                    </a>
+
+                    <!-- NUOVO: Link YouTube - Hover Rosso per coerenza di brand -->
+                    <a href="[LINK_AL_TUO_CANALE_YOUTUBE]" target="_blank" class="flex items-center text-primary-navy hover:text-red-600 transition duration-150">
+                        <i class="fab fa-youtube w-5 mr-3 text-lg"></i>
+                        <span class="text-sm">YOUTUBE: whatwedoiswhatwelove</span>
+                    </a>
+
+                    <!-- Link LinkedIn - Hover Ceruleo, il nuovo accento freddo -->
+                    <a href="https://www.linkedin.com/in/alessiobosticco/" target="_blank" class="flex items-center text-primary-navy hover:text-accent-cerulean transition duration-150">
+                        <i class="fab fa-linkedin w-5 mr-3 text-lg"></i>
+                        <span class="text-sm">LINKEDIN</span>
+                    </a>
+
+                    <!-- Link GitHub - Hover su un grigio scuro, per neutralità -->
+                    <a href="https://github.com/Alessio5687" target="_blank" class="flex items-center text-primary-navy hover:text-gray-800 transition duration-150">
+                        <i class="fab fa-github w-5 mr-3 text-lg"></i>
+                        <span class="text-sm">GITHUB</span>
+                    </a>
+                </div>
+                
+                <!-- Contatti Personali - ORA AL SECONDO POSTO -->
+                <!-- Aggiunta border-t per separare i link dai contatti -->
+                <div class="pt-4 border-t border-gray-200 mb-6 space-y-1">
+                    <p class="text-sm font-semibold text-primary-navy">Alessio Bosticco</p>
+                    <!-- Hover Ceruleo -->
+                    <a href="mailto:alessiobosticco12@gmail.com" class="text-sm font-regular text-primary-navy block hover:text-accent-cerulean transition duration-150">alessiobosticco12@gmail.com</a>
+                    <p class="text-sm font-regular text-primary-navy">+39 3665032536</p>
+                </div>
+
+
+                <!-- CV: Call to Action (CTA) Button - RIMANE IN FONDO -->
+                <div class="mt-8 pt-4 border-t border-gray-200">
+                    <!-- Sfondo con il nuovo Rame Opaco -->
+                    <!-- L'accent-gold rimane qui per la CTA principale -->
+                    <a href="[LINK_AL_TUO_CURRICULUM_VITAE_PDF]" target="_blank" class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-paper-white bg-accent-gold hover:bg-opacity-90 transition duration-150 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-gold">
+                        <i class="fas fa-file-pdf mr-3"></i>
+                        VISUALIZZA CV COMPLETO
+                    </a>
+                </div>
+            </div>
+            
         </div>
     </div>
 
